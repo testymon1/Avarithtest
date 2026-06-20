@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Avarith — Autonomous Intelligence Infrastructure. Build the future of AI with persistent memory, learning, and feedback loops.">
+  <meta name="theme-color" content="#06060A">
+  <title>Avarith Ultimate — AI Infrastructure 3.0</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">INITIALIZING AVARITH...</div>
+    <div class="loader-progress">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M12 2L12 22" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <path d="M2 12L22 12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.8"/>
+      </svg>
+      Avarith
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">System</a>
+      <a href="#principles">Principles</a>
+      <a href="#founder">Founder</a>
+      <a href="#waitlist">Waitlist</a>
+      <button class="nav-btn nav-btn-outline" id="loginBtn">Login</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- 3D Canvas -->
+  <div id="three-container">
+    <canvas id="three-canvas"></canvas>
+  </div>
+
+  <!-- UI Overlay -->
+  <div id="ui-overlay">
+    <!-- Hero Section -->
+    <div class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Autonomous Intelligence Infrastructure
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-gradient">Avarith</span>
+          <br>Ecosystem
+        </h1>
+        <p class="hero-subtitle">
+          Build AI that remembers. Learns. Evolves.
+          <br>One layer above the model.
+        </p>
+        <div class="hero-actions">
+          <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+          <a href="#about" class="btn btn-secondary">Explore →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Planet Labels (3D projected) -->
+    <div id="labels-container"></div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <!-- Planet Info Panel -->
+    <div class="info-panel" id="infoPanel">
+      <button class="info-panel-close" id="infoClose">✕</button>
+      <div class="info-panel-content">
+        <span class="info-badge">Coming Soon</span>
+        <h2 class="info-name" id="infoName">—</h2>
+        <p class="info-desc" id="infoDesc">—</p>
+        <button class="btn btn-outline info-learn">Learn More →</button>
+      </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+      <div class="modal-content">
+        <button class="modal-close" id="authClose">✕</button>
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Login</button>
+          <button class="auth-tab" data-tab="register">Register</button>
+        </div>
+        <form id="authForm">
+          <div class="auth-form" id="loginForm">
+            <input type="email" placeholder="Email" class="auth-input" id="loginEmail" required>
+            <input type="password" placeholder="Password" class="auth-input" id="loginPassword" required>
+            <button type="submit" class="btn btn-primary btn-full">Login</button>
+          </div>
+          <div class="auth-form hidden" id="registerForm">
+            <input type="text" placeholder="Full Name" class="auth-input" id="registerName" required>
+            <input type="email" placeholder="Email" class="auth-input" id="registerEmail" required>
+            <input type="password" placeholder="Password (8+ chars)" class="auth-input" id="registerPassword" required>
+            <input type="tel" placeholder="Phone (optional)" class="auth-input" id="registerPhone">
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+          </div>
+        </form>
+        <p class="auth-error" id="authError"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <main class="page" id="pageContent">
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="section-container">
+        <div class="section-label">What we're building</div>
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>
+              <strong>Model bisa diganti.</strong>
+              <br>Core tetap berkembang.
+            </h2>
+            <p>Avarith bukan tentang model AI mana yang digunakan. Nilai utamanya satu lapisan di atas model: orchestration layer yang mengelola memori, reasoning, feedback loops, dan pembelajaran berkelanjutan.</p>
+            <p class="about-highlight">Model adalah alat. Core adalah yang belajar.</p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number" data-count="7">0</span>
+                <span class="stat-label">Realitas Paralel</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="12">0</span>
+                <span class="stat-label">Spesies Punah</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-count="100">0</span>
+                <span class="stat-label">% Keamanan</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-diagram">
+            <div class="diagram">
+              <div class="diagram-layer">External Model Layer</div>
+              <div class="diagram-arrow">↓ Input / Output</div>
+              <div class="diagram-layer diagram-core">Avarith Core</div>
+              <div class="diagram-arrow">↓ Adaptive Response</div>
+              <div class="diagram-layer">Intelligence Output</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section class="section" id="principles">
+      <div class="section-container">
+        <div class="section-label">Core Principles</div>
+        <div class="principles-header">
+          <h2>Apa yang <strong>kami percaya</strong></h2>
+          <p>Prinsip ini bukan marketing. Ini adalah constraint arsitektur yang menentukan setiap keputusan.</p>
+        </div>
+        <div class="principles-grid" id="principlesGrid">
+          <div class="principle-card" data-delay="0">
+            <div class="principle-number">01</div>
+            <h3>Learning is infrastructure, not a feature</h3>
+            <p>Kemampuan belajar adalah fondasi yang menentukan bagaimana seluruh sistem dirancang dari awal.</p>
+          </div>
+          <div class="principle-card" data-delay="100">
+            <div class="principle-number">02</div>
+            <h3>Memory shapes intelligence</h3>
+            <p>Sistem AI tanpa memori memulai dari nol setiap saat. Avarith dirancang untuk mempertahankan konteks secara bermakna.</p>
+          </div>
+          <div class="principle-card" data-delay="200">
+            <div class="principle-number">03</div>
+            <h3>Models are replaceable. Core is not.</h3>
+            <p>Ketergantungan pada satu model adalah risiko arsitektur. Nilai ada di sistem yang menghubungkan, bukan model di bawahnya.</p>
+          </div>
+          <div class="principle-card" data-delay="300">
+            <div class="principle-number">04</div>
+            <h3>Feedback closes the loop</h3>
+            <p>Sistem yang tidak menerima feedback tidak dapat berkembang. Setiap interaksi adalah sinyal yang membentuk sistem lebih baik.</p>
+          </div>
+          <div class="principle-card" data-delay="400">
+            <div class="principle-number">05</div>
+            <h3>Honesty over hype</h3>
+            <p>Kami masih dalam tahap research. Tidak ada klaim yang belum dibuktikan. Progress diukur dari apa yang berhasil.</p>
+          </div>
+          <div class="principle-card" data-delay="500">
+            <div class="principle-number">06</div>
+            <h3>Infrastructure outlasts products</h3>
+            <p>Produk AI datang dan pergi. Infrastructure yang memungkinkan mereka belajar adalah apa yang tetap relevan jangka panjang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="section" id="founder">
+      <div class="section-container">
+        <div class="section-label">Founder Note</div>
+        <div class="founder-wrapper">
+          <div class="founder-body">
+            <p>Saya mulai membangun Avarith karena frustrasi dengan cara AI bekerja hari ini. Setiap sesi dimulai dari nol. Tidak ada yang diingat. Tidak ada yang dipelajari.</p>
+            <p>Pertanyaan yang terus mengganggu saya bukan "model mana yang paling pintar?" tapi "bagaimana sistem AI bisa benar-benar berkembang seiring waktu?" Itu masalah yang berbeda. Dan belum ada yang membangun infrastruktur untuk menjawabnya secara serius.</p>
+            <p>Avarith masih di tahap awal. Banyak hal yang belum selesai. Saya tidak ingin berpura-pura semuanya sudah siap. Yang saya yakini: jika AI akan benar-benar useful dalam jangka panjang, ia perlu sistem yang memungkinkannya belajar dari pengalaman — bukan sekadar model yang lebih besar, tapi sistem yang lebih cerdas.</p>
+          </div>
+          <div class="founder-signature">
+            <div class="founder-avatar">F</div>
+            <div>
+              <div class="founder-name">Felix</div>
+              <div class="founder-role">Founder, Avarith</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="section" id="waitlist">
+      <div class="section-container waitlist-container">
+        <div class="section-label">Early Access</div>
+        <h2>Bergabung sebelum <strong>kami launch</strong></h2>
+        <p class="waitlist-sub">Untuk builders, developers, dan researchers yang ingin ikut membentuk sistem ini. Tidak ada hype. Tidak ada timeline palsu.</p>
+        <form class="waitlist-form" id="waitlistForm">
+          <input type="email" class="waitlist-input" id="waitlistEmail" placeholder="email@kamu.com" required>
+          <input type="hidden" id="waitlistSource" value="landing_page">
+          <button type="submit" class="btn btn-primary waitlist-btn" id="waitlistBtn">Join</button>
+        </form>
+        <p class="waitlist-note">Tidak ada spam. Hanya update yang meaningful. 100% secure.</p>
+        <div class="waitlist-toast" id="waitlistToast"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <span class="footer-brand">Avarith</span>
+        <nav class="footer-nav">
+          <a href="#about">System</a>
+          <a href="#principles">Principles</a>
+          <a href="#founder">Founder</a>
+          <a href="#waitlist">Waitlist</a>
+        </nav>
+        <span class="footer-copy">&copy; 2025 Avarith. All rights reserved.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JavaScript -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
